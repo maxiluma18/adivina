@@ -37,15 +37,20 @@ main {
 
 .card-img {
     height: 200px;
-    border-radius: 60%;
+    border-radius: 10px;
+    /* Cambiar para que se vea más como un campo */
     margin: 20px 0;
     width: 70%;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 60px;
-    color: #000000;
+    color: #000;
+    /* Color del texto */
     font-weight: bold;
+    /* Borde para que se vea como un campo */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Fondo oscuro para contraste */
 }
 
 label {
@@ -160,4 +165,42 @@ img {
     margin: auto;
     margin-top: 20px;
 
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+
+    10% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    90% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+}
+
+.message {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    transform: none;
+    background-color: rgba(248, 0, 0, 0.8);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 18px;
+    animation: fadeInOut 3s ease-in-out forwards;
+    max-width: 300px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }

@@ -7,10 +7,16 @@
     <title>PERDIERON</title>
     <link rel="stylesheet" href="index.css">
     <script type="module" src="./reTry.js"></script>
+    <script>
+        window.addEventListener('load', () => {
+            const defeatSound = new Audio('derrota.mp3');
+            defeatSound.play();
+        });
+    </script>
 </head>
 
 <body class="body-d">
-    <h1 class="defeat">NO ADIVINARON LOS NÚMEROS</h1>
+    <h1 class="defeat">NO ADIVINARON LOS NÚMEROS <br> DEDÍQUENSE A OTRA COSA</h1>
     <div class="img-cont">
         <img src="/cristiano-ronaldo-defeat.gif" alt="imagen"></img>
     </div>
