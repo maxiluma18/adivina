@@ -1,0 +1,22 @@
+[
+    {
+        "id":1,
+        "color": "yellow",
+        "rta": 5
+    },
+    {
+        "id":2,
+        "color": "red",
+        "rta": 7
+    },
+    {
+        "id":3,
+        "color": "green",
+        "rta": 3
+    },
+    {
+        "id":4,
+        "color": "blue",
+        "rta": 1
+    }
+]
