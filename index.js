@@ -10,8 +10,10 @@ const fetchNums = async () => {
 }
 const main = document.querySelector("#numeros")
 const array = []
+let trys = 2;
 const numeros = fetchNums();
 numeros.then(data => {
+
     data.forEach(element => {
         const div = document.createElement("div")
         div.classList.add("card")
@@ -25,6 +27,12 @@ numeros.then(data => {
         input.type = "number"
         input.maxLength = 10
         input.minLength = 1
+
+        // Agregar el evento input
+        input.addEventListener('input', (e) => {
+            divImg.textContent = e.target.value || ''; // Si no hay valor, muestra string vacío
+        });
+
         div.appendChild(divImg)
         div.appendChild(input)
         main.appendChild(div)
@@ -38,33 +46,38 @@ const verificacion = () => {
     let allInputsValid = true; // Variable para verificar si todos los inputs son válidos
     const booleans = [];
     let i = 0;
+    if (trys == 0) {
+        window.location.href = "./derrota.html"
+    } else {
+        inputs.forEach(input => {
 
-    inputs.forEach(input => {
 
+            const inputValue = parseFloat(input.value);
 
-        const inputValue = parseFloat(input.value);
+            if (inputValue > 10) {
+                alert("Pista: Hay que ingresar números menores a 2*5");
+                allInputsValid = false;
+                return allInputsValid;
+            }
 
-        if (inputValue > 10) {
-            alert("Pista: Hay que ingresar números menores a 2*5");
+            if (inputValue === array[i]) {
+                booleans.push(array[i]);
+            }
+            i++;
+        });
+
+        if (booleans.length !== 4) {
             allInputsValid = false;
-            return allInputsValid;
+            trys--
+            alert("Números incorrectos, prueba de nuevo")
         }
 
-        if (inputValue === array[i]) {
-            booleans.push(array[i]);
-        }
-        i++;
-    });
+        console.log(booleans);
+        console.log(allInputsValid);
 
-    if (booleans.length !== 4) {
-        allInputsValid = false;
-        alert("Números incorrectos, prueba de nuevo")
+        return allInputsValid;
     }
 
-    console.log(booleans);
-    console.log(allInputsValid);
-
-    return allInputsValid;
 }
 
 
